@@ -148,11 +148,10 @@ If no artifact flags are enabled, nothing is written.
 Requires Python >= 3.10.
 
 ```bash
-# Base install (no estimator backends)
 pip install gaze-estimation-lib
 
-# Install L2CS backend (required to run gaze estimation)
-pip install "gaze-estimation-lib[l2cs]"
+# Install the L2CS backend (required to run gaze estimation)
+pip install "l2cs @ git+https://github.com/edavalosanaya/L2CS-Net.git@main"
 ```
 
 Module import name remains:
@@ -163,13 +162,13 @@ import gaze
 
 ### Installing the L2CS backend (pip)
 
-`gaze-estimation-lib` ships estimator backends as optional extras. To run the default `l2cs` backend, install the `l2cs` extra:
+PyPI packages cannot declare Git/VCS dependencies. The default `l2cs` backend must be installed separately:
 
 ```bash
-pip install "gaze-estimation-lib[l2cs]"
+pip install "l2cs @ git+https://github.com/edavalosanaya/L2CS-Net.git@main"
 ```
 
-If you already installed the base package, you can install the extra later using the same command.
+If you already installed `gaze-estimation-lib`, you can run the command above at any time to add the backend.
 
 ---
 
@@ -408,13 +407,14 @@ uv sync
 
 ### Installing the L2CS backend (uv)
 
-By default, `uv sync` installs the base dependencies. To install the optional L2CS backend extra in the project environment:
+Add the backend to your local uv environment from Git:
 
 ```bash
-uv sync --extra l2cs
+uv add --dev "l2cs @ git+https://github.com/edavalosanaya/L2CS-Net.git@main"
+uv sync
 ```
 
-(Alternatively, after syncing you can add the extra dependencies explicitly and resync.)
+Note: this updates your local project environment; it is intended for development/use in this repo.
 
 Run CLI:
 
