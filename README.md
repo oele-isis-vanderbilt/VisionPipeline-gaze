@@ -211,7 +211,7 @@ python -m gaze.cli.estimate_gaze --estimator l2cs --list-variants
 
 ```bash
 python -m gaze.cli.estimate_gaze \
-  --json faces.json \
+  --json-in faces.json \
   --video in.mp4 \
   --weights weights.pkl
 ```
@@ -223,7 +223,7 @@ python -m gaze.cli.estimate_gaze \
 
 ```bash
 python -m gaze.cli.estimate_gaze \
-  --json faces.json \
+  --json-in faces.json \
   --video in.mp4 \
   --weights weights.pkl \
   --json-out \
@@ -426,7 +426,7 @@ Run augmentation:
 
 ```bash
 uv run python -m gaze.cli.estimate_gaze \
-  --json faces.json \
+  --json-in faces.json \
   --video in.mp4 \
   --weights weights.pkl
 ```
