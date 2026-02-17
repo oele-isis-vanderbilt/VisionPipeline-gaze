@@ -226,7 +226,7 @@ python -m gaze.cli.estimate_gaze \
   --json-in faces.json \
   --video in.mp4 \
   --weights weights.pkl \
-  --json-out \
+  --json \
   --frames \
   --save-video annotated.mp4 \
   --out-dir out --run-name demo
