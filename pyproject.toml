@@ -10,8 +10,12 @@ authors = [
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
 dependencies = [
-    "l2cs @ git+https://github.com/edavalosanaya/L2CS-Net.git@main",
     "tqdm>=4.67.3",
+]
+
+[project.optional-dependencies]
+l2cs = [
+    "l2cs @ git+https://github.com/edavalosanaya/L2CS-Net.git@main",
 ]
 
 [dependency-groups]

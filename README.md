@@ -148,7 +148,11 @@ If no artifact flags are enabled, nothing is written.
 Requires Python >= 3.10.
 
 ```bash
+# Base install (no estimator backends)
 pip install gaze-estimation-lib
+
+# Install L2CS backend (required to run gaze estimation)
+pip install "gaze-estimation-lib[l2cs]"
 ```
 
 Module import name remains:
@@ -156,6 +160,16 @@ Module import name remains:
 ```python
 import gaze
 ```
+
+### Installing the L2CS backend (pip)
+
+`gaze-estimation-lib` ships estimator backends as optional extras. To run the default `l2cs` backend, install the `l2cs` extra:
+
+```bash
+pip install "gaze-estimation-lib[l2cs]"
+```
+
+If you already installed the base package, you can install the extra later using the same command.
 
 ---
 
@@ -391,6 +405,16 @@ Sync environment:
 ```bash
 uv sync
 ```
+
+### Installing the L2CS backend (uv)
+
+By default, `uv sync` installs the base dependencies. To install the optional L2CS backend extra in the project environment:
+
+```bash
+uv sync --extra l2cs
+```
+
+(Alternatively, after syncing you can add the extra dependencies explicitly and resync.)
 
 Run CLI:
 
