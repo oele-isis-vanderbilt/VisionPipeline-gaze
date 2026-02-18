@@ -182,6 +182,20 @@ pip install "l2cs @ git+https://github.com/edavalosanaya/L2CS-Net.git@main"
 
 If you already installed `gaze-estimation-lib`, you can run the command above at any time to add the backend.
 
+
+
+### CUDA note (optional)
+
+If you want GPU acceleration on NVIDIA CUDA, install a **CUDA-matching** build of **torch** and **torchvision**.
+
+If you installed CPU-only wheels by accident, uninstall and reinstall the correct CUDA wheels (use the official PyTorch selector for your CUDA version).
+
+```bash
+pip uninstall -y torch torchvision
+# then install the CUDA-matching wheels for your system
+# (see: https://pytorch.org/get-started/locally/)
+```
+
 ---
 
 ## L2CS Weights
@@ -445,24 +459,18 @@ uv run python -m gaze.cli.estimate_gaze \
 
 ---
 
-# Testing different help levels
+### CUDA note (optional)
 
-Basic help:
+For best performance on NVIDIA GPUs, make sure **torch** and **torchvision** are installed with a build that matches your CUDA toolkit / driver stack.
 
-```bash
-uv run python -m gaze.cli.estimate_gaze -h
-```
-
-Estimator help:
+If you added CPU-only builds earlier, remove them and add the correct CUDA wheels, then re-sync.
 
 ```bash
-uv run python -m gaze.cli.estimate_gaze --list-estimators
-```
-
-Variant help:
-
-```bash
-uv run python -m gaze.cli.estimate_gaze --estimator l2cs --list-variants
+uv remove torch torchvision
+# then add the CUDA-matching wheels for your system
+# (see: https://pytorch.org/get-started/locally/)
+uv add <compatible torch torchvision>
+uv sync
 ```
 
 ---
