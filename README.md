@@ -2,7 +2,7 @@
 
 # gaze-estimation-lib
 
-**Minimum Python:** `>=3.10`
+**Minimum Python:** `==3.10.*`
 
 **gaze-estimation-lib** is a modular **gaze estimation + JSON augmentation** toolkit that attaches gaze predictions to detections containing face boxes.
 
